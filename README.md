@@ -122,7 +122,68 @@ After ensuring the application conf file and Dockerfiles match run `mvn install`
 
 </hr>
 
-# Containerizing rabbitmq and memcached
+# Pulling rabbitmq and memcached
+
+```
+docker pull rabbitmq
+docker pull memcached
+```
+</hr>
+
+# Creating the docker-compose.yaml file
+
+```
+version: '3'
+services:
+  vprodb:
+    image: elkakimmie/db:v1
+    ports:
+      - "3306:3306"
+    volumes:
+      - vprodbdata:/var/lib/mysql
+    environment:
+      - "MYSQL_ROOT_PASSWORD=mypassword"
+      - "MYSQL_DATABASE=accounts"
+  vprocache01:
+    image: memcached:latest
+    ports:
+      - "11211:11211"
+  vpromq01:
+    image: rabbitmq:latest
+    ports:
+      - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+  vproapp:
+    image: elkakimmie/devops:V.1
+    ports:
+      - "8080:8080"
+    volumes:
+      - vproappdata:/usr/local/tomcat/webapps"
+  vproweb:
+    image: elkakimmie/web-nginx:v1
+    ports:
+      - "80:80"
+
+volumes:
+  vprodbdata: {}
+  vproappdata: {}
+```
+
+
+`docker-compose up -d`
+
+![image](https://user-images.githubusercontent.com/96833570/213276012-2541380c-f487-4d1e-8005-f32b2c568959.png)
+
+![image](https://user-images.githubusercontent.com/96833570/213276659-473813d3-4429-4280-a883-a8f8bb5c31cf.png)
+
+
+# Validation
+
+
+https://user-images.githubusercontent.com/96833570/213281210-b67f9f29-7dc7-4894-ba3a-1f72fa720c18.mp4
+
 
 
 
