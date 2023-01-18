@@ -1,4 +1,8 @@
-# Devops-Projects-15--Containerize-Java-Web-App
+# Devops-Projects-15-Containerize-Java-Web-App
+
+![image](https://user-images.githubusercontent.com/96833570/213305986-192997af-4c9a-4016-afc4-077f7134f9c1.png)
+
+
 
 
 # Customizing images/ building the artifact and containerizing 
