@@ -182,6 +182,17 @@ volumes:
 
 ![image](https://user-images.githubusercontent.com/96833570/213276659-473813d3-4429-4280-a883-a8f8bb5c31cf.png)
 
+## Storing images on dockerhub
+
+`docker login`
+
+```
+docker push elkakimmie/web-nginx:v1
+docker push elkakimmie/db:v1
+docker push elkakimmie/devops:V.1
+```
+![image](https://user-images.githubusercontent.com/96833570/213467119-82cfd193-9399-46fd-9bf4-43f472c77047.png)
+
 
 # Validation
 
